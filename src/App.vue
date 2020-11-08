@@ -1,32 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+/* 为了覆盖normalize的margin: 0样式  */
+/*添加html提高权重*/
+html body {
+  min-width: 320px;
+  max-width: 750px;
+  /* flexible 默认给我们划分了 10 等份 */
+  width: 10rem;
+  margin: 0 auto;
+  background-color: #999;
+  /* IOS禁止微信调整字体大小 */
+  -webkit-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+  -moz-text-size-adjust: 100% !important;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+/* 这个插件默认的html文字大小 cssroot  16px */
+/* 如果我们的屏幕超过了 750px  那么我们就按照 750设计稿来走 不会让我们页面超过750px */
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 75px !important;
+  }
 }
 </style>
